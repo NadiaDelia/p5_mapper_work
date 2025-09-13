@@ -7,7 +7,6 @@ let pg1;
 let pg2;
 let pgW;
 
-let angle = 0;
 let r = 0;
 
 function setup() {
