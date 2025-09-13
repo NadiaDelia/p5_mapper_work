@@ -1,9 +1,11 @@
 let pMapper;
 let quadMap1;
 let quadMap2;
+let quadMapW;
 
 let pg1;
 let pg2;
+let pgW;
 
 let r = 0;
 
@@ -12,13 +14,15 @@ function setup() {
 
   // create mapper object
   pMapper = createProjectionMapper(this);
-  quadMap1 = pMapper.createQuadMap(600, 800);
-  quadMap2 = pMapper.createQuadMap(800, 600);
+  quadMap1 = pMapper.createQuadMap(550, 850);
+  quadMap2 = pMapper.createQuadMap(550, 850);
+  quadMapW = pMapper.createQuadMap(10, 270);
 
   pMapper.load("maps/map.json");
 
-  pg1 = createGraphics(600, 800);
-  pg2 = createGraphics(800, 600);
+  pg1 = createGraphics(550, 850);
+  pg2 = createGraphics(850, 550);
+  pgW = createGraphics(10, 270);
 }
 
 function draw() {
@@ -34,11 +38,14 @@ function draw() {
   pg2.rectMode(CENTER);
   pg2.rect(pg2.width / 2 , pg2.height / 2, 100,100);
 
-  
+  pgW.background(0, 255, 0);
+  pgW.fill(255);
+  pgW.rectMode(CENTER);
+  pgW.rect(pgW.width / 2 , pgW.height / 2, 100,100);
+
   quadMap1.displayTexture(pg1);
   quadMap2.displayTexture(pg2);
-
-
+  quadMapW.displayTexture(pgW);
 }
 
 function keyPressed() {
